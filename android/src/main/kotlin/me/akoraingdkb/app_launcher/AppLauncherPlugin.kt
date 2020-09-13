@@ -29,21 +29,29 @@ class AppLauncherPlugin : FlutterPlugin, MethodCallHandler {
     }
 
     override fun onMethodCall(@NonNull call: MethodCall, @NonNull result: Result) {
-        if (call.method == "openApp") {
-            try {
+        when (call.method) {
+            "openApp" -> {
+                try {
+                    val intent: Intent? = call.argument<String>("applicationId")?.let { context.packageManager.getLaunchIntentForPackage(it) }
+
+                    if (intent != null) {
+                        context.startActivity(intent)
+                    } else {
+                        Toast.makeText(context, "No app was found with the application ID ${call.argument<String>("applicationId")}", Toast.LENGTH_LONG).show()
+                    }
+                } catch (e: PackageManager.NameNotFoundException) {
+                    Toast.makeText(context, "No app was found with the application ID ${call.argument<String>("applicationId")}", Toast.LENGTH_LONG).show()
+                    result.error("APP_NOT_FOUND", "No app was found with the specified application ID", "Please specify a correct application ID");
+                }
+            }
+            "hasApp" -> {
                 val intent: Intent? = call.argument<String>("applicationId")?.let { context.packageManager.getLaunchIntentForPackage(it) }
 
-                if (intent != null) {
-                    context.startActivity(intent)
-                } else {
-                    Toast.makeText(context, "No app was found with the application ID ${call.argument<String>("applicationId")}", Toast.LENGTH_LONG).show()
-                }
-            } catch (e: PackageManager.NameNotFoundException) {
-                Toast.makeText(context, "No app was found with the application ID ${call.argument<String>("applicationId")}", Toast.LENGTH_LONG).show()
-                result.error("APP_NOT_FOUND", "No app was found with the specified application ID", "Please specify a correct application ID");
+                result.success(intent != null)
             }
-        } else {
-            result.notImplemented()
+            else -> {
+                result.notImplemented()
+            }
         }
 
     }
