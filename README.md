@@ -4,7 +4,8 @@
 
 A flutter plugin that launches an Android or iOS installed on the device using the application ID.  
 
-###### Supports only Android as of now. PRs for iOS support will be very appreciated.
+#### NOTICE
+> Supports only Android as of now. PRs for iOS support will be very appreciated.
 
 ## Usage
 Simply call the `openApp` static method and pass in your application ID as a String:
@@ -19,14 +20,19 @@ RaisedButton(
 ),
 ```
 
-**Note: the `androidApplicationId` must neither be empty nor `null`.**
+**Note: the `androidApplicationId` must neither be empty nor `null`.  
+
+## TODO
+- [x] Android Support.
+- [ ] iOS Support.
+- [ ] Open Google Play / AppStore when app not found.
+- [ ] Support passing arguments.
 
 ## Example
 Check the examples [tab](https://pub.dev/packages/flutter_text_drawable/example) or take a look at the example [file](https://github.com/Akora-IngDKB/app_launcher/blob/master/example/lib/main.dart).
 
-### Contribution
+## Contribution
 This project is fully open-source. Feel free to open issues when you realize one and PRs are welcome as well.  
-
 
 ## License
 This project has been licensed under the MIT License. Check the [LICENSE](LICENSE) file for the details.
