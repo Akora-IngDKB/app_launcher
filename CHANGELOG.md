@@ -1,3 +1,4 @@
-## 0.0.1
+## 0.1.0 - [13-Sep-2020]
 
-* TODO: Describe initial release.
+* Initial release.
+* Launch and android app using the application ID.

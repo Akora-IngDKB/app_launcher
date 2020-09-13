@@ -1,15 +1,32 @@
 # app_launcher
+[![Pub](https://img.shields.io/pub/v/app_launcher.svg?style=flat-square&logo=dart&logoColor=white&color=blue)](https://pub.dev/packages/app_launcher)
+[![License](https://img.shields.io/badge/license-MIT-purple.svg?style=flat-square)](LICENSE)
 
-A new flutter plugin project.
+A flutter plugin that launches an Android or iOS installed on the device using the application ID.  
 
-## Getting Started
+###### Supports only Android as of now. PRs for iOS support will be very appreciated.
 
-This project is a starting point for a Flutter
-[plug-in package](https://flutter.dev/developing-packages/),
-a specialized package that includes platform-specific implementation code for
-Android and/or iOS.
+## Usage
+Simply call the `openApp` static method and pass in your application ID as a String:
+```dart
+RaisedButton(
+  onPressed: () async {
+    await AppLauncher.openApp(
+      androidApplicationId: "com.whatsapp",
+    );
+  },
+  child: Text('Open WhatsApp'),
+),
+```
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+**Note: the `androidApplicationId` must neither be empty nor `null`.**
 
+## Example
+Check the examples [tab](https://pub.dev/packages/flutter_text_drawable/example) or take a look at the example [file](https://github.com/Akora-IngDKB/app_launcher/blob/master/example/lib/main.dart).
+
+### Contribution
+This project is fully open-source. Feel free to open issues when you realize one and PRs are welcome as well.  
+
+
+## License
+This project has been licensed under the MIT License. Check the [LICENSE](LICENSE) file for the details.
