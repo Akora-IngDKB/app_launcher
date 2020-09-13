@@ -20,7 +20,16 @@ RaisedButton(
 ),
 ```
 
-**Note: the `androidApplicationId` must neither be empty nor `null`.  
+You can also check if the app is installed on the device.
+```dart
+final isInstalled = await AppLauncher.openApp(
+  androidApplicationId: "com.whatsapp",
+);
+```
+`isInstalled` will be `true` if found and `false` otherwise.  
+
+
+**Note: the `androidApplicationId` must neither be empty nor `null`**.  
 
 ## TODO
 - [x] Android Support.
