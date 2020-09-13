@@ -29,11 +29,13 @@ class MyApp extends StatelessWidget {
               SizedBox(height: 16),
               RaisedButton(
                 onPressed: () async {
-                  await AppLauncher.openApp(
-                    androidApplicationId: "sth.apply.wrongapp",
+                  final value = await AppLauncher.hasApp(
+                    androidApplicationId: "org.videolan.vlc",
                   );
+
+                  print(value);
                 },
-                child: Text('Open Something Else'),
+                child: Text('Check for VLC'),
               ),
             ],
           ),
