@@ -29,7 +29,7 @@ RaisedButton(
 - [ ] Support passing arguments.
 
 ## Example
-Check the examples [tab](https://pub.dev/packages/flutter_text_drawable/example) or take a look at the example [file](https://github.com/Akora-IngDKB/app_launcher/blob/master/example/lib/main.dart).
+Check the examples [tab](https://pub.dev/packages/app_launcher/example) or take a look at the example [file](https://github.com/Akora-IngDKB/app_launcher/blob/master/example/lib/main.dart).
 
 ## Contribution
 This project is fully open-source. Feel free to open issues when you realize one and PRs are welcome as well.  
