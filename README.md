@@ -19,10 +19,12 @@ RaisedButton(
   child: Text('Open WhatsApp'),
 ),
 ```
+If app is not installed, it'll attempt to open the app details on Google Play.  
+
 
 You can also check if the app is installed on the device.
 ```dart
-final isInstalled = await AppLauncher.openApp(
+final bool isInstalled = await AppLauncher.openApp(
   androidApplicationId: "com.whatsapp",
 );
 ```
@@ -33,8 +35,9 @@ final isInstalled = await AppLauncher.openApp(
 
 ## TODO
 - [x] Android Support.
+- [x] Open Google Play when app not found.
 - [ ] iOS Support.
-- [ ] Open Google Play / AppStore when app not found.
+- [ ] Open AppStore when app not found.
 - [ ] Support passing arguments.
 
 ## Example

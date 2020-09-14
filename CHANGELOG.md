@@ -1,3 +1,7 @@
+## 0.2.1 - [14-Sep-2020]
+
+* Open Google Play when app is not found.
+
 ## 0.2.0+1 - [14-Sep-2020]
 
 * Fixed gradle build error.
