@@ -3,13 +3,17 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:app_launcher/app_launcher.dart';
 
 void main() {
-  const MethodChannel channel = MethodChannel('app_launcher');
+  const MethodChannel channel = MethodChannel('me.akoraingdkb.app_launcher');
 
   TestWidgetsFlutterBinding.ensureInitialized();
 
   setUp(() {
     channel.setMockMethodCallHandler((MethodCall methodCall) async {
-      return '42';
+      if (methodCall.method == 'hasApp') {
+        return true;
+      }
+
+      return false;
     });
   });
 
@@ -17,7 +21,13 @@ void main() {
     channel.setMockMethodCallHandler(null);
   });
 
-  test('getPlatformVersion', () async {
-    expect(await AppLauncher.platformVersion, '42');
+  test('hasApp', () async {
+    expect(
+        await AppLauncher.hasApp(androidApplicationId: 'com.whatsapp'), true);
+  });
+
+  test('openApp', () async {
+    expect(
+        AppLauncher.openApp(androidApplicationId: 'com.whatsapp'), isA<void>());
   });
 }
