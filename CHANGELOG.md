@@ -1,3 +1,6 @@
+## 1.0.0-nullsafety.0 - [20-Mar-2021]
+* Migrate package to null safety.
+
 ## 0.2.1 - [14-Sep-2020]
 
 * Open Google Play when app is not found.
