@@ -24,7 +24,7 @@ class AppLauncherPlugin : FlutterPlugin, MethodCallHandler {
     private lateinit var context: Context
 
     override fun onAttachedToEngine(@NonNull flutterPluginBinding: FlutterPlugin.FlutterPluginBinding) {
-        channel = MethodChannel(flutterPluginBinding.binaryMessenger, "app_launcher")
+        channel = MethodChannel(flutterPluginBinding.binaryMessenger, "me.akoraingdkb.app_launcher")
         channel.setMethodCallHandler(this)
         context = flutterPluginBinding.applicationContext
     }

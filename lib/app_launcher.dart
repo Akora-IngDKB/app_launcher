@@ -3,7 +3,8 @@ import 'dart:async';
 import 'package:flutter/services.dart';
 
 class AppLauncher {
-  static const MethodChannel _channel = const MethodChannel('app_launcher');
+  static const MethodChannel _channel =
+      const MethodChannel('me.akoraingdkb.app_launcher');
 
   /// Check if the app with [`androidApplicationId`] is installed on the device.
   ///
