@@ -3,17 +3,18 @@ import 'dart:async';
 import 'package:flutter/services.dart';
 
 class AppLauncher {
-  static const MethodChannel _channel = const MethodChannel('app_launcher');
+  static const MethodChannel _channel =
+      const MethodChannel('me.akoraingdkb.app_launcher');
 
   /// Check if the app with [`androidApplicationId`] is installed on the device.
   ///
   /// Returns `true` if found or `false` otherwise.
   ///
   /// [`androidApplicationId`] should not be empty or null.
-  static Future<bool> hasApp({String androidApplicationId}) async {
+  static Future<bool> hasApp({required String androidApplicationId}) async {
     assert(
-      androidApplicationId != null && androidApplicationId.isNotEmpty,
-      "[androidApplicationId] cannot be null or empty",
+      androidApplicationId.isNotEmpty,
+      "[androidApplicationId] cannot be empty",
     );
 
     final result = await _channel.invokeMethod<bool>(
@@ -23,7 +24,7 @@ class AppLauncher {
       },
     );
 
-    return result;
+    return result ?? false;
   }
 
   /// Attempt to open the app on the device with the [`androidApplicationId`].
@@ -31,10 +32,10 @@ class AppLauncher {
   /// Will display a toast if no app is found.
   ///
   /// [`androidApplicationId`] should not be empty or null.
-  static Future<void> openApp({String androidApplicationId}) async {
+  static Future<void> openApp({required String androidApplicationId}) async {
     assert(
-      androidApplicationId != null && androidApplicationId.isNotEmpty,
-      "[androidApplicationId] cannot be null or empty",
+      androidApplicationId.isNotEmpty,
+      "[androidApplicationId] cannot be empty",
     );
 
     await _channel.invokeMethod(

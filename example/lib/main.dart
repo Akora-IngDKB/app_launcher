@@ -12,13 +12,13 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
-          title: const Text('Plugin example app'),
+          title: const Text('App Launcher Example'),
         ),
         body: Center(
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
-              RaisedButton(
+              ElevatedButton(
                 onPressed: () async {
                   await AppLauncher.openApp(
                     androidApplicationId: "com.whatsapp",
@@ -27,7 +27,7 @@ class MyApp extends StatelessWidget {
                 child: Text('Open WhatsApp'),
               ),
               SizedBox(height: 16),
-              RaisedButton(
+              ElevatedButton(
                 onPressed: () async {
                   final value = await AppLauncher.hasApp(
                     androidApplicationId: "org.videolan.vlc",
