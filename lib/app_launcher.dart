@@ -1,6 +1,6 @@
 import 'dart:async';
-
 import 'package:flutter/services.dart';
+import 'package:url_launcher/url_launcher.dart'; // Add this import for URL launching
 
 class AppLauncher {
   static const MethodChannel _channel =
@@ -29,7 +29,7 @@ class AppLauncher {
 
   /// Attempt to open the app on the device with the [`androidApplicationId`].
   ///
-  /// Will display a toast if no app is found.
+  /// Will display a toast if no app is found, and redirect to Google Play Store if needed.
   ///
   /// [`androidApplicationId`] should not be empty or null.
   static Future<void> openApp({required String androidApplicationId}) async {
@@ -38,11 +38,25 @@ class AppLauncher {
       "[androidApplicationId] cannot be empty",
     );
 
-    await _channel.invokeMethod(
-      'openApp',
-      <String, Object>{
-        'applicationId': androidApplicationId,
-      },
-    );
+    final isAppInstalled =
+        await hasApp(androidApplicationId: androidApplicationId);
+
+    if (isAppInstalled) {
+      await _channel.invokeMethod(
+        'openApp',
+        <String, Object>{
+          'applicationId': androidApplicationId,
+        },
+      );
+    } else {
+      final playStoreUrl =
+          'https://play.google.com/store/apps/details?id=$androidApplicationId';
+      if (await canLaunch(playStoreUrl)) {
+        await launch(playStoreUrl);
+      } else {
+        // Handle the error if the URL cannot be launched
+        throw 'Could not open the Play Store.';
+      }
+    }
   }
 }
