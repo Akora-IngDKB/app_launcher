@@ -37,6 +37,14 @@ class MyApp extends StatelessWidget {
                 },
                 child: Text('Check for VLC'),
               ),
+              ElevatedButton(
+                onPressed: () async {
+                  await AppLauncher.openApp(
+                    androidApplicationId: "org.videolan.vlc",
+                  );
+                },
+                child: Text('Open for VLC'),
+              ),
             ],
           ),
         ),
