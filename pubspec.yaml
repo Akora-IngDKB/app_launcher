@@ -1,6 +1,6 @@
 name: app_launcher
 description: A flutter plugin that launches an Android or iOS installed on the device using the application ID.
-version: 1.0.0
+version: 1.0.1
 homepage: https://github.com/Akora-IngDKB/app_launcher.git
 
 environment:
