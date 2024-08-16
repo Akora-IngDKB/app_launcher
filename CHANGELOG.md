@@ -1,6 +1,6 @@
 ## [1.0.1] - [16-August-2024]
 
-- Promote null-safety support to stable.
+- Updated to kotlin version
 
 ## [1.0.0] - [23-April-2021]
 
