@@ -51,8 +51,8 @@ class AppLauncher {
     } else {
       final playStoreUrl =
           'https://play.google.com/store/apps/details?id=$androidApplicationId';
-      if (await canLaunch(playStoreUrl)) {
-        await launch(playStoreUrl);
+      if (await canLaunchUrl(Uri.parse(playStoreUrl))) {
+        await launchUrl(Uri.parse(playStoreUrl));
       } else {
         // Handle the error if the URL cannot be launched
         throw 'Could not open the Play Store.';
