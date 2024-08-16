@@ -5,7 +5,7 @@
 
 A flutter plugin that launches an Android or iOS installed on the device using the application ID.
 
-[![Lice![app_launcher_example](https://github.com/user-attachments/assets/6ef667f8-fcd3-431a-a173-f8c0e8d08784)
+[app_launcher_example](https://github.com/user-attachments/assets/6ef667f8-fcd3-431a-a173-f8c0e8d08784)
 
 #### NOTICE
 
