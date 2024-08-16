@@ -2,7 +2,7 @@ group 'me.akoraingdkb.app_launcher'
 version '1.0-SNAPSHOT'
 
 buildscript {
-    ext.kotlin_version = '1.5.0'
+    ext.kotlin_version = '1.7.10'
     repositories {
         google()
         jcenter()
@@ -39,7 +39,7 @@ apply plugin: 'kotlin-android'
 // apply from: "$flutterRoot/packages/flutter_tools/gradle/flutter.gradle"
 
 android {
-    compileSdkVersion 31
+    compileSdkVersion 34
 
     sourceSets {
         main.java.srcDirs += 'src/main/kotlin'
